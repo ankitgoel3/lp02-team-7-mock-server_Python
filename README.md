@@ -81,9 +81,11 @@ Dev Notes:
       * Method definitions inside a class are surrounded by a single blank line.
     - Imports
       * Imports should usually be on separate lines, e.g.
+        ```python
         Yes: import os
              import sys
         No:  import sys, os
+        ```
     - For more visit ``https://www.python.org/dev/peps/pep-0008/``
 
 1. On the command line, navigate to your project root and run the following command to generate a 
