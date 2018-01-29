@@ -85,3 +85,9 @@ Dev Notes:
              import sys
         No:  import sys, os
     - For more visit ``https://www.python.org/dev/peps/pep-0008/``
+
+1. On the command line, navigate to your project root and run the following command to generate a 
+   configuration file:
+   ```python
+   pylint --generate-rcfile > .pylintrc
+   ```
