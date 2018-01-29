@@ -33,3 +33,36 @@ Dev Notes:
     ```python
     app.run(debug=True)
     ```
+### Guideline how Save Endpoint works
+1. I used try except block in Python to handle the exceptions
+1. Three things are happening inside the `createUser` method
+    - Checking for already existing user by showing following message :
+       ```python
+       Email already exists
+       ```
+    - Showing message if user added successfully
+       ```python
+       User Added
+       ```
+    - Showing message if something went wrong
+       ```python
+       Something went wrong! Please try again
+       ```
+1. To test the end point you can use the following JSON data:
+    ```python
+    {
+        "first_name":"Test",
+        "last_name":"Person",
+        "email":"Test.Person@cognizant.com",
+        "admin":true,
+        "password":"testpassword",
+        "photo_url":"https://res.cloudinary.com/hs7ycros0/image/upload/v1511452210/lp02team07mock/Test.jpg",
+        "slack_handle":"@Test",
+        "nickname":"Test",
+        "title":"Developer",
+        "location":"IN",
+        "manager_id":13,
+        "about_me":"I have been a project manager for the past 5 years",
+        "interests":"cricket,football,golf"
+    }
+    ```
