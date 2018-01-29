@@ -91,3 +91,12 @@ Dev Notes:
    ```python
    pylint --generate-rcfile > .pylintrc
    ```
+1. To run the python file for linting errors, run the following command
+   ```python
+   pylint server.py
+   ```
+1. Parallel execution of Pylint....
+   ```python
+   pylint -j 4 mymodule1.py mymodule2.py mymodule3.py mymodule4.py
+   ```
+   * This will spawn 4 parallel Pylint sub-process, where each provided module will be checked in parallel.
