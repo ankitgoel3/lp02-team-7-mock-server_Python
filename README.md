@@ -88,12 +88,14 @@ Dev Notes:
         ```
     - For more visit ``https://www.python.org/dev/peps/pep-0008/``
 1. Message category mapping
-   ```Pylint category      Code    VS Code category mapping```
-   ```convention            C            Information```
-   ```refactor              R            Hint```
-   ```warning               W            Warning```
-   ```error                 E            Error```
-   ```fatel                 F            Error```
+   ```python
+   Pylint category      Code    VS Code category mapping
+   convention            C            Information
+   refactor              R            Hint
+   warning               W            Warning
+   error                 E            Error
+   fatel                 F            Error
+   ```
 
 1. On the command line, navigate to your project root and run the following command to generate a 
    configuration file:
