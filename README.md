@@ -66,3 +66,22 @@ Dev Notes:
         "interests":"cricket,football,golf"
     }
     ```
+
+### Getting Started with PyLint
+1. Install `pylint` through `pip`
+    - `pip install pylint`
+1. Code lay-out
+    - Indentation 
+      * Use 4 spaces per indentation level)
+      * Spaces are the preferred indentation method. Tabs should be used solely to remain consistent with code that    is already indented with tabs. Python 3 disallows mixing the use of tabs and spaces for indentation.
+    - Maximum Line Length
+      * Limit all lines to a maximum of 79 characters.
+    - Blank Lines
+      * Surround top-level function and class definitions with two blank lines.
+      * Method definitions inside a class are surrounded by a single blank line.
+    - Imports
+      * Imports should usually be on separate lines, e.g.
+        Yes: import os
+             import sys
+        No:  import sys, os
+    - For more visit ``https://www.python.org/dev/peps/pep-0008/``
