@@ -87,6 +87,13 @@ Dev Notes:
         No:  import sys, os
         ```
     - For more visit ``https://www.python.org/dev/peps/pep-0008/``
+1. Message category mapping
+   ```Pylint category      Code    VS Code category mapping```
+   ```convention            C            Information```
+   ```refactor              R            Hint```
+   ```warning               W            Warning```
+   ```error                 E            Error```
+   ```fatel                 F            Error```
 
 1. On the command line, navigate to your project root and run the following command to generate a 
    configuration file:
@@ -102,3 +109,7 @@ Dev Notes:
    pylint -j 4 mymodule1.py mymodule2.py mymodule3.py mymodule4.py
    ```
    * This will spawn 4 parallel Pylint sub-process, where each provided module will be checked in parallel.
+1. Disable all messages with --disable=all
+   ```python
+   pylint --disable=all
+   ```
