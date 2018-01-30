@@ -1,9 +1,7 @@
 from flask import Flask, jsonify, request
 import uuid
 import hashlib
-
 from models.user import User
-
 from sqlalchemy import or_
 from database.database import scoped, engine
 from controllers.users import UsersController
@@ -19,26 +17,20 @@ def users():
     usersController = UsersController()
     return jsonify(usersController.getUsers())
 
-<<<<<<< HEAD
+
 @app.route("/search", methods = ['POST'])
 def search():
     name = request.json["name"]
     usersController = UsersController()
     return jsonify(usersController.searchByName(name))
 
-@app.route("/user", methods = ['GET'])
+	@app.route("/user", methods = ['GET'])
 def getUserById():
    id = request.args.get('id')
    usersController = UsersController()
    return jsonify(usersController.getUserById(id))
    
-=======
-@app.route("/users/searchByName", methods=['POST'])
-def search():
-    name = request.json["name"]
-    users = [u.as_dict() for u in User.query.filter(or_(User.first_name.ilike('%'+name+'%'), 
-                                                        User.last_name.ilike('%'+name+'%')))]
-    return jsonify(users)
+
 
 @app.route("/users/create", methods=['POST'])
 def createUser():
@@ -83,7 +75,6 @@ def createUser():
             statusMessage='Something went wrong! Please try again.',
             ), 500
 
->>>>>>> master
 @app.teardown_appcontext
 def shutdown_session(exception=None):
     scoped.remove()
