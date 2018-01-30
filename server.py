@@ -1,11 +1,10 @@
 from flask import Flask, jsonify, request
 import uuid
 import hashlib
-
 from models.user import User
-
 from sqlalchemy import or_
 from database.database import scoped, engine
+from controllers.users import UsersController
 
 app = Flask(__name__)
 
@@ -15,15 +14,23 @@ def index():
 
 @app.route("/users", methods=['GET'])
 def users():
-    users = [u.as_dict() for u in User.query.all()]
-    return jsonify(users)
+    usersController = UsersController()
+    return jsonify(usersController.getUsers())
 
-@app.route("/users/searchByName", methods=['POST'])
+
+@app.route("/search", methods = ['POST'])
 def search():
     name = request.json["name"]
-    users = [u.as_dict() for u in User.query.filter(or_(User.first_name.ilike('%'+name+'%'), 
-                                                        User.last_name.ilike('%'+name+'%')))]
-    return jsonify(users)
+    usersController = UsersController()
+    return jsonify(usersController.searchByName(name))
+
+	@app.route("/user", methods = ['GET'])
+def getUserById():
+   id = request.args.get('id')
+   usersController = UsersController()
+   return jsonify(usersController.getUserById(id))
+   
+
 
 @app.route("/users/create", methods=['POST'])
 def createUser():
