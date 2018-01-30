@@ -39,9 +39,5 @@ class User(ToJson, Base):
         self.about_me = about_me
         self.interests = interests
 
-    # @property
-    # def createdAt(self):
-    #     return self.created_at.isoformat()
-
     def __repr__(self):
        return '<User %r>' % (self.email)
