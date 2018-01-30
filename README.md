@@ -33,3 +33,85 @@ Dev Notes:
     ```python
     app.run(debug=True)
     ```
+### Guideline how Save Endpoint works
+1. I used try except block in Python to handle the exceptions
+1. Three things are happening inside the `createUser` method
+    - Checking for already existing user by showing following message :
+       ```python
+       Email already exists
+       ```
+    - Showing message if user added successfully
+       ```python
+       User Added
+       ```
+    - Showing message if something went wrong
+       ```python
+       Something went wrong! Please try again
+       ```
+1. To test the end point you can use the following JSON data:
+    ```python
+    {
+        "first_name":"Test",
+        "last_name":"Person",
+        "email":"Test.Person@cognizant.com",
+        "admin":true,
+        "password":"testpassword",
+        "photo_url":"https://res.cloudinary.com/hs7ycros0/image/upload/v1511452210/lp02team07mock/Test.jpg",
+        "slack_handle":"@Test",
+        "nickname":"Test",
+        "title":"Developer",
+        "location":"IN",
+        "manager_id":13,
+        "about_me":"I have been a project manager for the past 5 years",
+        "interests":"cricket,football,golf"
+    }
+    ```
+
+### Getting Started with PyLint
+1. Install `pylint` through `pip`
+    - `pip install pylint`
+1. Code lay-out
+    - Indentation 
+      * Use 4 spaces per indentation level)
+      * Spaces are the preferred indentation method. Tabs should be used solely to remain consistent with code that    is already indented with tabs. Python 3 disallows mixing the use of tabs and spaces for indentation.
+    - Maximum Line Length
+      * Limit all lines to a maximum of 79 characters.
+    - Blank Lines
+      * Surround top-level function and class definitions with two blank lines.
+      * Method definitions inside a class are surrounded by a single blank line.
+    - Imports
+      * Imports should usually be on separate lines, e.g.
+        ```python
+        Yes: import os
+             import sys
+        No:  import sys, os
+        ```
+    - For more visit ``https://www.python.org/dev/peps/pep-0008/``
+1. Message category mapping
+   ```python
+   Pylint category      Code    VS Code category mapping
+   convention            C            Information
+   refactor              R            Hint
+   warning               W            Warning
+   error                 E            Error
+   fatel                 F            Error
+   ```
+
+1. On the command line, navigate to your project root and run the following command to generate a 
+   configuration file:
+   ```python
+   pylint --generate-rcfile > .pylintrc
+   ```
+1. To run the python file for linting errors, run the following command
+   ```python
+   pylint server.py
+   ```
+1. Parallel execution of Pylint....
+   ```python
+   pylint -j 4 mymodule1.py mymodule2.py mymodule3.py mymodule4.py
+   ```
+   * This will spawn 4 parallel Pylint sub-process, where each provided module will be checked in parallel.
+1. Disable all messages with --disable=all
+   ```python
+   pylint --disable=all
+   ```
