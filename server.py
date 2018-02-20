@@ -1,14 +1,15 @@
 from flask import Flask, jsonify, request
+from flask_cors import CORS
 import uuid
 import hashlib
-
+import json
 from models.user import User
 
 from sqlalchemy import or_
 from database.database import scoped, engine
 
 app = Flask(__name__)
-
+CORS(app)
 @app.route("/")
 def index():
     return "Welcome to Book of Faces Python Server App."
@@ -67,6 +68,13 @@ def createUser():
             StatusCode=500,
             statusMessage='Something went wrong! Please try again.',
             ), 500
+
+@app.route("/chartData", methods=['POST'])
+def chartData():
+    name = request.json["medicinecode"]
+    data2 = '{"label": "F.C Barcelona","expanded": "false","children": [{"label": "F.C Barcelona","expanded": "false","children": [{"label": "Chelsea FC"},{"label": "F.C. Barcelona"}]},{"label": "Real Madrid","expanded": "false","children": [{"label": "Bayern Munich"},{"label": "Real Madrid"}]}]}'
+    decoded = json.loads(data2)
+    return jsonify(decoded)
 
 @app.teardown_appcontext
 def shutdown_session(exception=None):
